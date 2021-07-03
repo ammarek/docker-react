@@ -8,3 +8,12 @@ before_install:
 
 script:
   - docker run -e CI=true ammar1ammar1/docker-react npm run test 
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token:
+    secure: "github_token"
+  local_dir: build
+  on:
+    branch: master
